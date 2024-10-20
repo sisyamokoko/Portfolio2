@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Tanaka_portfolio</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    
+    <!-- ここがCSS -->
+    <style>
+
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700;800;900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700;800;900&family=Zen+Maru+Gothic&display=swap');
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .btn{
+        background:rgba(107, 103, 143, 0.5);
+        border-radius: 2rem;
+        border: none;
+        position: fixed;
+        bottom: 2rem; 
+        right: 2rem;
+        padding: 35px 30px;
+        font-family: 'Fredoka', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+        transition: 0.2s ease-in-out;
+        color: rgb(215, 217, 250);
+      }
+
+      .btn:hover {
+        background:rgba(107, 103, 143, 0.9);
+      }
+      
+      .top-button {
+        width: 13rem;
+        padding: 1.5em 3rem;
+        background: #babece;
+        border: none;
+        border-radius: 8rem;
+        font-family: 'Fredoka', sans-serif;
+        font-size: 1rem;
+        letter-spacing: 0.2rem;
+        text-align: center;
+        transition: 0.8s ease-in-out;
+        box-shadow: 11px 11px 25px #8f929f, -11px -11px 25px #cfd1e2;
+        margin-top: 5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        color: #3b3d47;
+      }
+            
+      .top-button:hover {
+        box-shadow: 5px 5px 10px #8f929f, -5px -5px 10px #cfd1e2;
+      }
+            
+      .top-button:active {    
+        box-shadow: 
+        inset -2px -2px 6px #b7b9c9,
+        inset -2px -2px 4px rgba(255, 255, 255, .5),
+        inset 2px 2px 2px rgba(255, 255, 255, .075),
+        inset 2px 2px 4px rgba(0, 0, 0, .15);
+     }
+
+      body {
+        margin: 0;
+        padding: 0;
+        object-position: 0 0;
+        background-color: #babece;
+        /* width: 100%;
+        background-repeat: repeat-y;
+        background: url(haikei.jpg); */
+      }
+
+      .iti{
+        display: flex;
+        justify-content: center;
+      }
+
+      h1{
+        font-family: 'Fredoka', sans-serif;
+        font-size: 6rem;
+        margin-top: 10rem;
+        text-align:center;
+        color: #3b3d47;
+      }
+
+      .namae{
+        font-family: 'Fredoka', sans-serif;
+        font-size: 1.8rem;
+        margin-top: -4rem;
+        text-align:center;
+        padding-bottom: 0rem;
+        color: #3b3d47;
+      }
+
+      .title-1{
+        font-family: 'Fredoka', sans-serif;
+        font-size: 3.5rem;
+        margin-top: 0rem;
+        text-align:center;
+        color: #3b3d47;
+        padding-top: 5rem;
+        padding-bottom: 0rem;
+        margin-bottom: 3rem;
+      }
+
+      .title{
+        font-family: 'Fredoka', sans-serif;
+        font-size: 3.5rem;
+        margin-top: 0rem;
+        text-align:center;
+        color: #3b3d47;
+        padding-top: 3rem;
+        padding-bottom: 0rem;
+        margin-bottom: 3rem;
+      }
+
+      /*
+      .waku{
+        display: block;
+        margin: 0 auto;
+        padding: auto;
+        border-radius: 2rem;
+        box-shadow:  11px 11px 25px #8f929f, -11px -11px 25px #cfd1e2;
+      }
+      */
+
+      .aaa{
+        text-decoration: none;
+        color: #3b3d47;
+      }
+
+      .bbb{
+        text-decoration: none;
+        color: #b6b8c9;
+      }
+
+      .kuu{
+        margin-bottom: 15rem;
+      }
+
+      .OC{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.3rem;
+        color: #e7e8f0;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      footer{
+        background-color: #1f1e20;
+        padding-top: 3rem;
+        padding-bottom: 0.1rem;
+      }
+
+      .overlays {
+        position: fixed;
+        /* position: absolute; */
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        transition: opacity 200ms;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .overlays .cancel {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        cursor: default;
+    }
+
+    .overlays:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .img-button {
+        display: block;
+        margin: 0 auto;
+        padding: auto;
+        border-radius: 2rem;
+        box-shadow:  11px 11px 25px #8f929f, -11px -11px 25px #cfd1e2;
+        transition: 0.8s ease-in-out;
+      }
+            
+      .img-button:hover {
+        box-shadow: 5px 5px 10px #8f929f, -5px -5px 10px #cfd1e2;
+      }
+            
+      .img-button:active {    
+        box-shadow: 
+        inset -2px -2px 6px #b7b9c9,
+        inset -2px -2px 4px rgba(255, 255, 255, .5),
+        inset 2px 2px 2px rgba(255, 255, 255, .075),
+        inset 2px 2px 4px rgba(0, 0, 0, .15);
+     }
+
+     .modals {
+        font-family: 'Fredoka', sans-serif;
+        text-align: center;
+        /* margin-top: calc(50% - 200px); */
+        padding: 1rem;
+        background: #f1f1f3;
+        border: 1px solid #666;
+        width: auto;
+        border-radius: 2rem;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        position: relative;
+    }
+
+    .modals-back{
+      height: 100%;
+      display: flex;
+        justify-content: center;
+      align-items: center;
+    }
+
+    .waku{
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        position: relative;
+        border-radius: 2rem;
+    }
+    
+    .M-h2{
+      font-family: "M PLUS 1p", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        margin-top: 0.6rem;
+        margin-bottom: -1rem;
+    }
+    .M-p{
+      font-family: "M PLUS 1p", sans-serif;
+      font-weight: 400;
+      font-size: 21px;
+      font-style: normal;
+    }
+
+
+    </style>
+
+
+
+    <!-- ここがJavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => { // この行は編集しないでね
+
+      }) // この行は編集しないでね
+    </script>
+
+    <!-- ここがjQuery -->
+    <script>
+      $(function() { // この行は編集しないでね
+
+      }) // この行は編集しないでね
+    </script>
+
+
+
+    
+  </head>
+
+  <body>
+    <h1>Portfolio</h1>
+    <h2 class="namae">Tanaka Shodai</h2>
+    
+    <div class="iti">
+      <a href="#typo" class="aaa"><button class="top-button">typography</button></a>
+      <a href="#3DD" class="aaa"><button class="top-button">3DCG</button></a>
+      <a href="#sono" class="aaa"><button class="top-button">other</button></a>
+    </div>
+
+    <a href="#" class="bbb"><button class="btn">TOP</button></a>
+
+      <h3 class="title-1" id="typo">typography</h3>
+      
+      <a href="#modal-1">
+        <img class="img-button" src="zoom2.jpg" alt="zoom" width="800px" height="auto">
+      </a>
+      <div id="modal-1" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+          <div class="modals">
+            <img class="waku" src="zoom2.jpg" alt="zoom" width="600px" height="auto">
+            <h2 class="M-h2">ZOOM</h2>
+              <p class="M-p">なんか可愛いね</p>
+          </div>
+        </div>
+      </div>
+      <br><br>
+
+      <a href="#modal-2">
+        <img class="img-button" src="neo2.jpg" alt="NEO" width="800px" height="auto">
+      </a>
+      <div id="modal-2" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <img class="waku" src="neo2.jpg" alt="NEO" width="600px" height="auto">
+          <h2 class="M-h2">NEO</h2>
+            <p class="M-p">この近未来感が好き</p>
+        </div>
+        </div>
+      </div>
+      <br><br>
+
+      <a href="#modal-3">
+        <img class="img-button" src="sin2.jpg" alt="新人類" width="800px" height="auto">
+      </a>
+      <div id="modal-3" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <img class="waku" src="sin2.jpg" alt="新人類" width="600px" height="auto">
+          <h2 class="M-h2">新人類</h2>
+            <p class="M-p">シンバルの猿の名前は「わんぱくスージー」</p>
+        </div>
+        </div>
+      </div>
+      <br><br>
+
+      <a href="#modal-4">
+      <img class="img-button" src="2023a.jpg" alt="2023" width="800px" height="auto">
+      </a>
+      <div id="modal-4" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <img class="waku" src="2023a.jpg" alt="2023" width="600px" height="auto">
+          <h2 class="M-h2">2023</h2>
+            <p class="M-p">これ本当に好き、傑作</p>
+        </div>
+        </div>
+      </div>
+      <br><br>
+
+      <a href="#modal-5">
+      <img class="img-button" src="已己已己.jpeg" alt="已己已己" width="800px" height="auto">
+      </a>
+      <div id="modal-5" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <img class="waku" src="已己已己.jpeg" alt="已己已己" width="600px" height="auto">
+          <h2 class="M-h2">已己已己</h2>
+            <p class="M-p">已己已己（ いこみき ）</p>
+        </div>
+        </div>
+      </div>
+      <div class="kuu"></div>
+
+      <h3 class="title" id="3DD">3DCG</h3>
+
+      <a href="#modal-6">
+      <img class="img-button" src="SwitchRoom.png" alt="SwitchRoom" width="800px" height="auto">
+      </a>
+      <div id="modal-6" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <img class="waku" src="SwitchRoom.png" alt="SwitchRoom" width="600px" height="auto">
+          <h2 class="M-h2">SwitchRoom</h2>
+            <p class="M-p">ミニチュアハウスみたいなの好き</p>
+        </div>
+        </div>
+      </div>
+      <br><br>
+
+      <a href="#modal-7">
+      <img class="img-button" src="バレンティン.png" alt="バレンタイン" width="800px" height="auto">
+      </a>
+      <div id="modal-7" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <img class="waku" src="バレンティン.png" alt="バレンタイン" width="600px" height="auto">
+          <h2 class="M-h2">バレンタイン</h2>
+            <p class="M-p">これは2022に友達を騙すために作られた負の産物</p>
+        </div>
+        </div>
+      </div>
+      <br><br>
+
+      <a href="#modal-8">
+      <img class="img-button" src="AEforBlender.png" alt="AEforBlender" width="800px" height="auto">
+      </a>
+      <div id="modal-8" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <img class="waku" src="AEforBlender.png" alt="AEforBlender" width="600px" height="auto">
+          <h2 class="M-h2">AEforBlender</h2>
+            <p class="M-p">エラーメッセージが重なってるの好き<br>あとホログラムもいいね</p>
+        </div>
+        </div>
+      </div>
+      <br><br>
+
+      <a href="#modal-9">
+      <img class="img-button" src="北極.png" alt="北極" width="800px" height="auto">
+      </a>
+      <div id="modal-9" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <img class="waku" src="北極.png" alt="北極" width="600px" height="auto">
+          <h2 class="M-h2">北極</h2>
+            <p class="M-p">これすごい</p>
+        </div>
+        </div>
+      </div>
+      <div class="kuu"></div>
+
+      <h3 class="title" id="sono">other</h3>
+
+      <a href="#modal-10">
+      <img class="img-button" src="デスクトップ背景.png" alt="幾何学の海" width="800px" height="auto">
+      </a>
+      <div id="modal-10" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <img class="waku" src="デスクトップ背景.png" alt="幾何学の海" width="600px" height="auto">
+          <h2 class="M-h2">幾何学の海</h2>
+            <p class="M-p">作ったの高２とか</p>
+        </div>
+        </div>
+      </div>
+      <br><br>
+
+      <a href="#modal-11">
+      <img class="img-button" src="re_cqramail.jpg" alt="Re:cqramail" width="800px" height="auto">
+      </a>
+      <div id="modal-11" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <img class="waku" src="re_cqramail.jpg" alt="Re:cqramail" width="600px" height="auto">
+          <h2 class="M-h2">Re:cqramail</h2>
+            <p class="M-p">昔に作ったのを作り直したのじゃ</p>
+        </div>
+        </div>
+      </div>
+      <br><br>
+
+      <a href="#modal-12">
+      <img class="img-button" src="space3.jpg" alt="SPACE" width="800px" height="auto">
+      </a>
+      <div id="modal-12" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <video class="waku" playsinline muted autoplay controls preload="metadata" src="space.mp4" alt="SPACE" width="600px" height="auto"></video>
+          <h2 class="M-h2">SPACE</h2>
+            <p class="M-p">昔に作ったもののリメイクだったりする</p>
+        </div>
+        </div>
+      </div>
+      <br><br>
+
+      <a href="#modal-13">
+      <img class="img-button" src="20!!!.jpg" alt="SPACE" width="800px" height="auto">
+      </a>
+      <div id="modal-13" class="overlays">
+        <a class="cancel" href="#aaa"></a>
+        <div class="modals-back">
+        <div class="modals">
+          <video class="waku" playsinline muted autoplay controls preload="metadata" src="20!!!.mp4" alt="20" width="600px" height="auto"></video>
+          <h2 class="M-h2">20!!!</h2>
+            <p class="M-p">20歳になった記念に誕生日に５時間くらいかけて作ったやつ</p>
+        </div>
+        </div>
+      </div>
+
+      
+      <div class="kuu"></div>
+
+    <footer>
+      <p class="OC">© tanaka shodai</p>
+   </footer>
+
+
+  </body>
+</html>
